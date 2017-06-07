@@ -1,0 +1,9 @@
+1495567171605	Rename package 'src.main.java.com.highrise.login'
+1495568770891	Move 'com' to 'main'
+1495569035230	Move 'com' to 'java'
+1495569052062	Delete element
+1495569674438	Delete element
+1495649053620	Rename resource 'jquery-3.1.1.txt'
+1495649067843	Rename resource 'jquery-ui.txt'
+1495649359900	Move 2 resources to 'jquery'
+1495745874358	Rename resource 'index.html'

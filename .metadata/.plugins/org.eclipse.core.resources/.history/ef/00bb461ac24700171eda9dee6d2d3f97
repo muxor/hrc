@@ -1,0 +1,147 @@
+
+
+<!-- Description: create form to hit Restful endpoint; java code should serialize a list of -->
+<!-- 4 similar object instances and return json that will then be filtered for the retrieved results -->
+
+
+
+<div style="margin: 5px; display: inline-table; width: 100%;">
+
+<div style="float: left; border: thin solid none; width: 35%; margin: 5px;"> 
+
+				<div class="form-group">
+
+
+					<div class="input-group">
+						<span class="input-group-addon" id="first_name" >First Name</span> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							ng-model="fName" placeholder="Enter first name here">
+					</div>
+				</div>
+				<div class="form-group">
+
+
+					<div class="input-group">
+						<span class="input-group-addon" id="last_name">Last Name</span> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							ng-model="lName" placeholder="Enter last name here">
+					</div>
+				</div>
+				
+				<div class="form-group">
+
+
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon">Email</span> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							ng-model="email" placeholder="Enter email here">
+					</div>
+				</div>
+				
+				<div class="form-group">
+
+
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon">PMS User ID</span> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							ng-model="puid" placeholder="Enter email here">
+					</div>
+				</div>
+				
+				
+				<div class="form-group">
+
+
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon">Request ID</span> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							ng-model="rid" placeholder="Enter email here">
+					</div>
+				</div>
+
+
+</div>
+
+<div style="float: left; border: thin solid none; width: 35%; margin: 5px;"> 
+
+				<div class="form-group">
+
+
+					<div class="input-group" style="width: 100%;">
+<!-- 						<span class="input-group-addon" id="basic-addon">Status</span>  -->
+						
+<!-- 						<input -->
+<!-- 							type="text" class="form-control" id="exampleInputEmail1" -->
+<!-- 							ng-model="status" placeholder="Enter email here"> -->
+							
+							<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Status
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+							
+					</div>
+				</div>
+				
+				
+				
+				<div class="form-group">
+
+
+					<div class="input-group">
+					Date Requested:
+						<span class="input-group-addon" id="basic-addon">From:</span> <input
+							type="text" class="form-control" id="exampleInputEmail1" ui-date="dateOptions"
+							ng-model="date_req_from" placeholder="Choose date" >
+							<span class="input-group-addon" id="basic-addon">To:</span> <input
+							type="text" class="form-control" id="exampleInputEmail1" ui-date="dateOptions"
+							ng-model="date_req_to" placeholder="Choose date" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+
+
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon">Date Completed</span> <input
+							type="text" class="form-control" id="exampleInputEmail1" ui-date="dateOptions"
+							ng-model="date_completed" placeholder="Enter email here">
+					</div>
+					
+				</div>
+				
+				
+				
+				
+
+				
+				<div class="form-group" style="float:right;">
+					<button class="btn btn-default" data-ng-click="getUsers2()" id="getUsers2">Get Users!</button>
+					
+					
+
+					<button type="submit" class="btn btn-default"
+						data-ng-click="">Clear</button>
+
+				</div>
+
+</div>
+
+
+</div>
+
+
+		
+
+<div id="grid1" ui-grid="gridOptions2" class="grid" style=" width: 100%; "></div>
+
+
+	

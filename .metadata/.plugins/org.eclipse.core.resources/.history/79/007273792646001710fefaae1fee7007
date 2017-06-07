@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+
+<style>
+.component-centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background-color: #efefef;
+	text-align: center;
+}
+</style>
+
+<link type="text/css" rel="stylesheet" href="./css/pms.css" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+<script type="text/javascript">
+	//action: adds latest copy of index.js to this file. Problem was that index.js getting accidentally
+	// stored in browser memory
+
+	var my_dynamic_script = document.createElement('script');
+
+	my_dynamic_script.setAttribute('type', 'text/javascript');
+
+	my_dynamic_script.setAttribute('src', 'index_2.js?' + (new Date).getTime());
+
+	document.head.appendChild(my_dynamic_script);
+</script>
+
+<!-- <script type="text/javascript" src="index.js"></script> -->
+
+<!-- <script src="./resources/jquery.min.js"></script> -->
+<script type="text/javascript" src="./js/jquery/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="./js/jquery/jquery-ui.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		// jQuery methods go here...
+
+		// 	$('#loadingMsg').show();
+
+		// 	$('#loadingMsg').hide();
+		$('#reset1').click(function() {
+
+			$("input:text").val(null);
+			$("input:password").val(null);
+
+		});
+
+	});
+</script>
+
+</head>
+
+
+
+<!-- <body ng-app="myApp"> -->
+<body>
+
+	<div id="loadingMsg" class="loading" style="display: none;">
+		<img class="loading-image centered" src="./img/page-loader.gif"
+			alt="Loading..." /> <span class="loading-image"
+			style="padding-top: 45px;">Loading...</span>
+	</div>
+
+
+
+
+	<!-- 	<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"> -->
+
+	<!--   <div class="modal-dialog modal-sm" role="document"> -->
+	<!--     <div class="modal-content"> -->
+	<!--       Authentication 1 just ran and is successful! and returned... -->
+	<!--       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+	<!--     </div> -->
+	<!--   </div> -->
+	<!-- </div> -->
+
+
+	<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1"
+		role="dialog" aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="alert alert-info" id="modalAlert" role="alert">
+					<span id="modalTitle1" style="float:left;"> Should be replaced</span>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					 <br /><br />
+					<span id="modalText1"> Should be replaced</span> <br />
+				</div>
+				<div style="text-align: center;"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div>
+				<br />
+				
+			</div>
+		</div>
+	</div>
+
+
+<!-- ng-controller="myCtrl" -->
+	<div class="panel panel-default" id="container1" 
+		style="height: 100vh; border: thin solid red;">
+
+		<div class="panel-heading" style="background-color: green;">
+			<h3 class="panel-title">Panel title 12:41</h3>
+		</div>
+
+
+		<!-- <nav class="navbar navbar-default"> -->
+		<!-- PMS -->
+		<!-- </nav> -->
+
+
+
+		<div>
+			<!--   <p>Name : <input type="text" ng-model="name"></p> -->
+			<!--   <h1>Hello {{name}}...my full name is {{firstName}} {{lastName}}</h1> -->
+
+			<!--    -->
+
+		</div>
+
+
+
+		<!-- <div style=""> -->
+
+		<!-- <div  class="input-group"> -->
+		<!-- <span class="input-group-addon" id="basic-addon1">Username:</span> <input type="text" ng-model="user"  placeholder="Enter Username here"/> -->
+		<!-- </div> -->
+
+		<!-- <div  class="input-group"> -->
+		<!-- <span class="input-group-addon" id="basic-addon2">Password:</span> <input type="password" ng-model="pwd" placeholder="Enter password here"/> -->
+		<!-- </div> -->
+		<!-- <p> -->
+		<!-- <button data-ng-click="runAuthentication1()">go!</button> -->
+
+		<!-- </p> -->
+
+
+		<!-- </div> -->
+
+
+		<div class="container component-centered"
+			style="margin: 5px auto; width: 30%; background: #ccc; border-radius: 15px; height: auto; padding: 30px;">
+
+			<b>Login</b> <br /> <br />
+			<form>
+				<div class="form-group">
+
+
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon">Username</span> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							ng-model="user" placeholder="Enter Username here">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon2">Password</span>
+						<input type="password" class="form-control"
+							id="exampleInputPassword1" ng-model="pwd"
+							placeholder="Enter password here">
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-default" id="reset1">Reset</button>
+
+					<button type="submit" class="btn btn-default"
+						data-ng-click="runAuthentication2()">Submit</button>
+
+				</div>
+				<div class="form-group">
+					<a href="#">Forgot Password ?</a>
+				</div>
+
+
+			</form>
+
+		</div>
+
+
+
+		<div class="panel-footer" style="width: 100%;">footer</div>
+
+		<!-- <br clear:both; /> -->
+
+	</div>
+
+
+</body>
+</html>

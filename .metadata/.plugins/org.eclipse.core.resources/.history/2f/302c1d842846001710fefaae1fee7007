@@ -1,0 +1,16 @@
+package com.highrise.login;
+
+public class User {
+
+	String userName;
+	String password;
+
+	public void User(String user, String password) {
+
+		this.userName = user;
+
+		this.password = password;
+
+	}
+
+}

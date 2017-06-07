@@ -1,0 +1,148 @@
+package com.highrise.login;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+@RestController
+@RequestMapping("/login")
+public class LoginController {
+
+	
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public Object thing1()
+	{
+		Result result = new Result();
+		
+		result.setKey("key");
+		result.setValue("The first thing");
+		
+		return result;
+	}
+	
+	
+	@RequestMapping(value="/authenticate1/{usr}/{pw}", method = RequestMethod.POST)
+	public boolean authenticate1(@PathVariable("usr") String userName, @PathVariable("pw") String pw){
+		
+		boolean isValid = false;
+		
+		String realUserName = "admin";
+		String realPassWord = "jackDaniels";
+		
+		if (userName.equals(realUserName) && pw.equals(realPassWord) ){
+			
+			isValid = true;
+		}
+		
+		return isValid;
+		
+	}
+	
+	@RequestMapping(value="/authenticate2", method = { RequestMethod.GET,
+			RequestMethod.POST }, consumes = "application/json")
+	public boolean authenticate2(@RequestBody User u1){
+//	public boolean authenticate2(@RequestParam("usr") String userName, @RequestParam("pw") String pw){
+		
+		boolean isValid = false;
+		
+		String realUserName = "admin";
+		String realPassWord = "jackDaniels";
+		
+		if (u1.userName.equals(realUserName) && u1.password.equals(realPassWord) ){
+			
+			isValid = true;
+		}
+		
+		return isValid;
+		
+	}
+	
+	@RequestMapping(value="/getUsers" , method = RequestMethod.GET)
+	
+	public List<OtherUser> userSearch(@RequestParam("fn") String fn,@RequestParam("ln") String ln,@RequestParam("em") String email1,@RequestParam("puid") String pmsId,@RequestParam("reqType") String reqType,@RequestParam("status") String status,@RequestParam("dateReq") String dr,@RequestParam("dateComp") String dc){
+//	public List<OtherUser> userSearch(){
+		
+		List<OtherUser> theList = new ArrayList<OtherUser>();
+		
+		
+				
+				String fname;
+				String lname;
+				String email;
+				String gender;
+				String ip_add;
+				
+				
+				
+				for (int j=0;j<5;j++){
+					
+					//action: creating mock data
+					fname = "name"+j;
+					lname = "last name"+j;
+					email = "you@me.com"+j;
+					gender = "female"+j;
+					ip_add =  "20.39.39.0"+j;
+					      
+					
+					
+					
+					if (fn != null && !fn.isEmpty() && fn.equals(fname)){
+					//action: take the one object matching a mock name value and exit the for loop
+						OtherUser u1 = new OtherUser(fname,lname,email,gender,ip_add);
+						theList.add(u1);
+//						break;
+						return theList;
+						
+					}else{
+						//action: add all mock object data
+						OtherUser u1 = new OtherUser(fname,lname,email,gender,ip_add);
+						theList.add(u1);
+						
+					}
+					
+					
+					
+				}
+		
+		
+		
+		return theList;
+		
+		
+	}
+	
+	public static class Result {
+		private String key;
+		private String value;
+		public String getKey() {
+			return key;
+		}
+		public String getValue() {
+			return value;
+		}
+		public void setKey(String key) {
+			this.key = key;
+		}
+		public void setValue(String value) {
+			this.value = value;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

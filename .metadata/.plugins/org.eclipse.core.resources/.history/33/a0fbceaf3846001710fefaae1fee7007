@@ -1,0 +1,26 @@
+package com.highrise.login;
+
+public class OtherUser {
+
+	String first_name;
+	String last_name;
+	String email;
+	String gender;
+	String ip_address;
+
+	public OtherUser(String fname, String lname, String email,String gender, String ipAdd) {
+
+		this.first_name = fname;
+
+		this.last_name = lname;
+		
+		this.email = email;
+		
+		this. gender = gender;
+	
+		this.ip_address = ipAdd;
+
+		
+	}
+
+}

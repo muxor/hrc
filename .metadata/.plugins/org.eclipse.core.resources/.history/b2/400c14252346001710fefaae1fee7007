@@ -1,0 +1,5 @@
+package com.highrise.login;
+
+public class User {
+
+}

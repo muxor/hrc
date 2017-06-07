@@ -1,0 +1,5 @@
+com\highrise\login\ApplicationDispatcherServletInitializer.class
+com\highrise\login\LoginController$Result.class
+com\highrise\login\LoginController.class
+com\highrise\login\User.class
+com\highrise\login\OtherUser.class
