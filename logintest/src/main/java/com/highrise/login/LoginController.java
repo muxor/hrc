@@ -78,12 +78,74 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value="getUsersGet")
-	public List<OtherUser2> performSearch(UserSearchParams params){
+	@RequestMapping(method = RequestMethod.GET, value="/getUsers4")
+	public List<UserSearchParams> performSearch(UserSearchParams params){
 
 		
 		
-		return Collections.emptyList();
+		List<UserSearchParams> theList = new ArrayList<UserSearchParams>();
+		
+//		stopped here: creating an updated getUsers method to accept more parameters without clogging the method parameters field		
+		
+		String fname;
+		String lname;
+		String email;
+		String puid;
+		String ruid;
+		String status;
+		String dateReq;
+		String dateCompl;
+		
+		
+		
+		for (int j=0;j<5;j++){
+			
+			//action: creating mock data
+			fname = "name"+j;
+			lname = "last name"+j;
+			email = "you@me.com"+j;
+			puid = "p3829"+j;
+			ruid = "r42398"+j;
+			status = "approved"+j;
+			dateReq = "06/1"+j+"/2017";
+			dateCompl = "06/2"+j+"/2017";
+			      
+			
+			boolean fnCheck = UserSearchParams.firstName != null && !UserSearchParams.firstName.isEmpty() && fname.toLowerCase().contains(UserSearchParams.firstName.toLowerCase()) ? true : false;
+			boolean lnCheck = UserSearchParams.lastName != null && !UserSearchParams.lastName.isEmpty() && lname.toLowerCase().contains(UserSearchParams.lastName.toLowerCase()) ? true : false;
+			boolean emailCheck = UserSearchParams.email != null && !UserSearchParams.email.isEmpty() && email.toLowerCase().contains(UserSearchParams.email.toLowerCase()) ? true : false;
+			boolean puCheck = UserSearchParams.pmsUid != null && !UserSearchParams.pmsUid.isEmpty() && puid.toLowerCase().contains(UserSearchParams.pmsUid.toLowerCase()) ? true : false;
+			boolean ruCheck = UserSearchParams.requestedId != null && !UserSearchParams.requestedId.isEmpty() && ruid.toLowerCase().contains(UserSearchParams.requestedId.toLowerCase()) ? true : false;
+			boolean statusCheck = UserSearchParams.status != null && !UserSearchParams.status.isEmpty() && status.toLowerCase().contains(UserSearchParams.status.toLowerCase()) ? true : false;
+			boolean drCheck = UserSearchParams.dateRequestedFrom != null && !UserSearchParams.dateRequestedFrom.isEmpty() && dateReq.toLowerCase().contains(UserSearchParams.dateRequestedFrom.toLowerCase()) ? true : false;
+			boolean dcCheck = UserSearchParams.dateCompletedFrom != null && !UserSearchParams.dateCompletedFrom.isEmpty() && dateCompl.toLowerCase().contains(UserSearchParams.dateCompletedFrom.toLowerCase()) ? true : false;
+			
+			
+			
+//			
+			if (fnCheck || lnCheck || emailCheck || puCheck || ruCheck || statusCheck || drCheck || dcCheck){
+			//action: take the one object matching a mock name value and exit the for loop
+//				
+				UserSearchParams u1 = new UserSearchParams();
+				u1.firstName = fname;
+				u1.lastName = lname;
+				u1.email = email;
+				theList.add(u1);
+
+				
+			}else{
+				continue;
+			}
+			
+			
+			
+		}
+
+
+
+return theList;
+		
+//		return Collections.emptyList();
 	}
 
 	@RequestMapping(value="/getUsersPost", method = RequestMethod.POST)
@@ -154,7 +216,7 @@ return theList;
 	
 	@RequestMapping(value="/getUsers" , method = RequestMethod.GET)
 	
-	public List<OtherUser> userSearch(@RequestParam("fn") String fn,@RequestParam("ln") String ln,@RequestParam("em") String email1,@RequestParam("puid") String pmsId,@RequestParam("reqType") String reqType,@RequestParam("status") String status,@RequestParam("dateReq") String dr,@RequestParam("dateComp") String dc){
+	public List<OtherUser> userSearch(@RequestParam("fn") String fn,@RequestParam("ln") String ln,@RequestParam("em") String email1,@RequestParam("puid") String pmsId,@RequestParam("reqType") String reqType,@RequestParam("status") String status,@RequestParam("dateReqF") String dr,@RequestParam("dateCompF") String dc){
 //	public List<OtherUser> userSearch(){
 		
 		List<OtherUser> theList = new ArrayList<OtherUser>();
@@ -226,15 +288,29 @@ return theList;
 	}
 	
 	public static class UserSearchParams {
-		private String firstName;
-		private String lastName;
-		private String email;
-		private Date dateRequestedFrom;
+		private static String firstName;
+		private static String lastName;
+		private static String email;
+		private static String pmsUid;
+		private static String requestedId;
+		private static String status;
+		private static String dateRequestedFrom;
+		private static String dateRequestedTo;
+		private static String dateCompletedFrom;
+		private static String dateCompletedTo;
 		
-		public Date getDateRequestedFrom() {
+		
+/*		public UserSearchParams(String firstName,String lastName, String email){
+			
+			setFirstName(firstName);
+			setLastName(lastName);
+			setEmail(email);
+		}*/
+		
+		public String getDateRequestedFrom() {
 			return dateRequestedFrom;
 		}
-		public void setDateRequestedFrom(Date dateRequestedFrom) {
+		public void setDateRequestedFrom(String dateRequestedFrom) {
 			this.dateRequestedFrom = dateRequestedFrom;
 		}
 		public String getFirstName() {

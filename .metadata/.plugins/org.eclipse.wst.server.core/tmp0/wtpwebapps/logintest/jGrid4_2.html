@@ -95,7 +95,7 @@
 
 						<span class="input-group-addon" id="">Status:</span> <select
 							class="form-control" ng-model="status"
-							ng-options="f for f in formats">
+							ng-options="f for f in formats" ng-change="setStatus()">
 
 							<option value="1"></option>
 							<option value="2">requested</option>
@@ -112,15 +112,15 @@
 		<div class="form-group">
 
 			<b style="display: block;">Date Requested (12:24):</b> <span
-				ng-controller="DatepickerDemoCtrl" style="display: inline-block;">
+				 style="display: inline-block; " ng-controller="DatepickerDemoCtrl">
 
-				<div class="input-group">
+				<div class="input-group" >
 					<input type="text" class="form-control"
-						datepicker-popup="{{format}}" ng-model="blank1" is-open="opened"
+						datepicker-popup="{{format}}" ng-model="dateReqFrom" is-open="opened"
 						min-date="minDate" max-date="'2020-06-22'"
 						datepicker-options="dateOptions"
 						date-disabled="disabled(date, mode)" ng-required="true"
-						close-text="Close" placeholder="from" /> <span
+						close-text="Close" placeholder="from" ng-change="setDateReqF()" /> <span
 						class="input-group-btn">
 						<button type="button" class="btn btn-default"
 							ng-click="open($event)">
@@ -129,20 +129,20 @@
 					</span>
 				</div>
 
-			</span> <span ng-controller="DatepickerDemoCtrl"
-				style="display: inline-block;">
+			</span> <span 
+				style="display: inline-block;" ng-controller="DatepickerDemoCtrl">
 
 				<div class="input-group">
 
 					<input type="text" class="form-control"
-						datepicker-popup="{{format}}" ng-model="blank2" is-open="opened"
+						datepicker-popup="{{format}}" ng-model="dateReqTo" is-open="opened"
 						min-date="minDate" max-date="'2020-06-22'"
 						datepicker-options="dateOptions"
 						date-disabled="disabled(date, mode)" ng-required="true"
 						close-text="Close" placeholder="to" /> <span
 						class="input-group-btn">
 						<button type="button" class="btn btn-default"
-							ng-click="open($event)">
+							ng-click="open($event)" >
 							<i class="glyphicon glyphicon-calendar"></i>
 						</button>
 					</span>
@@ -159,17 +159,17 @@
 		<div class="form-group">
 
 			<b style="display: block;">Date Completed:</b> <span
-				ng-controller="DatepickerDemoCtrl" style="display: inline-block;">
+				 style="display: inline-block;" ng-controller="DatepickerDemoCtrl">
 
 				<div class="input-group">
 
 					<input type="text" class="form-control"
-						datepicker-popup="{{format}}" ng-model="blank" is-open="opened"
+						datepicker-popup="{{format}}" ng-model="dateCompFrom" is-open="opened"
 						min-date="minDate" max-date="'2020-06-22'"
 						datepicker-options="dateOptions"
 						date-disabled="disabled(date, mode)" ng-required="true"
-						close-text="Close" placeholder="from" /> <span
-						class="input-group-btn">
+						close-text="Close" placeholder="from" ng-change="setDateCompF()" /> <span
+						class="input-group-btn" >
 						<button type="button" class="btn btn-default"
 							ng-click="open($event)">
 							<i class="glyphicon glyphicon-calendar"></i>
@@ -178,18 +178,18 @@
 
 				</div>
 
-			</span> <span ng-controller="DatepickerDemoCtrl"
-				style="display: inline-block;">
+			</span> <span 
+				style="display: inline-block;" ng-controller="DatepickerDemoCtrl">
 
 				<div class="input-group">
 
 					<input type="text" class="form-control"
-						datepicker-popup="{{format}}" ng-model="blank" is-open="opened"
+						datepicker-popup="{{format}}" ng-model="dateCompTo" is-open="opened"
 						min-date="minDate" max-date="'2020-06-22'"
 						datepicker-options="dateOptions"
 						date-disabled="disabled(date, mode)" ng-required="true"
-						close-text="Close" placeholder="to" /> <span
-						class="input-group-btn">
+						close-text="Close" placeholder="to" ng-change="setDateCompF" /> <span
+						class="input-group-btn" >
 						<button type="button" class="btn btn-default"
 							ng-click="open($event)">
 							<i class="glyphicon glyphicon-calendar"></i>
@@ -213,7 +213,7 @@
 
 		</div>
 
-		<!-- 				<span ng-controller="DatepickerDemoCtrl"> -->
+		<!-- 				<span > -->
 		<!-- 				  <div class="row"> -->
 		<!--         <div class="col-md-6"> -->
 		<!--             <p class="input-group"> -->
@@ -229,7 +229,7 @@
 
 
 		<div class="form-group" style="float: right;">
-			<button class="btn btn-default" data-ng-click="getUsers2()"
+			<button class="btn btn-default" data-ng-click="getUsers4()"
 				id="getUsers2">Get Users!</button>
 
 

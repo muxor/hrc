@@ -29,6 +29,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 
+	<script src="./js/ui-grid.min.js"></script>
+	<script src="./css/ui-grid.css"></script>
+
+
 <script type="text/javascript">
 	//action: adds latest copy of index.js to this file. Problem was that index.js getting accidentally
 	// stored in browser memory
@@ -37,7 +41,7 @@
 
 	my_dynamic_script.setAttribute('type', 'text/javascript');
 
-	my_dynamic_script.setAttribute('src', 'index.js?' + (new Date).getTime());
+	my_dynamic_script.setAttribute('src', 'index_2.js?' + (new Date).getTime());
 
 	document.head.appendChild(my_dynamic_script);
 </script>
@@ -89,7 +93,8 @@
 
 
 
-<body ng-app="myApp">
+<!-- <body ng-app="myApp"> -->
+<body>
 
 	<div id="loadingMsg" class="loading" style="display: none;">
 		<img class="loading-image centered" src="./img/page-loader.gif"
@@ -100,15 +105,15 @@
 
 
 
-	<!-- 	<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"> -->
+		<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 
-	<!--   <div class="modal-dialog modal-sm" role="document"> -->
-	<!--     <div class="modal-content"> -->
-	<!--       Authentication 1 just ran and is successful! and returned... -->
-	<!--       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-	<!--     </div> -->
-	<!--   </div> -->
-	<!-- </div> -->
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      Authentication 1 just ran and is successful! and returned...
+	      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	    </div>
+	  </div>
+	</div>
 
 
 	<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1"
@@ -128,11 +133,13 @@
 		</div>
 	</div>
 
-	<div class="panel panel-default" id="container1" ng-controller="myCtrl"
+
+<!-- ng-controller="myCtrl" -->
+	<div class="panel panel-default" id="container1" 
 		style="height: 100vh; border: thin solid red;">
 
 		<div class="panel-heading" style="background-color: green;">
-			<h3 class="panel-title">Panel title</h3>
+			<h3 class="panel-title">Panel title Login</h3>
 		</div>
 
 
@@ -181,7 +188,7 @@
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon">Username</span> <input
 							type="text" class="form-control" id="exampleInputEmail1"
-							ng-model="user" placeholder="Enter Username here">
+							ng-model="user.userName" placeholder="Enter Username here">
 					</div>
 				</div>
 
@@ -189,7 +196,7 @@
 					<div class="input-group">
 						<span class="input-group-addon" id="basic-addon2">Password</span>
 						<input type="password" class="form-control"
-							id="exampleInputPassword1" ng-model="pwd"
+							id="exampleInputPassword1" ng-model="user.password"
 							placeholder="Enter password here">
 					</div>
 				</div>
@@ -197,7 +204,7 @@
 					<button class="btn btn-default" id="reset1">Reset</button>
 
 					<button type="submit" class="btn btn-default"
-						data-ng-click="runAuthentication1()">Submit</button>
+						data-ng-click="runAuthentication2()">Submit</button>
 
 				</div>
 				<div class="form-group">

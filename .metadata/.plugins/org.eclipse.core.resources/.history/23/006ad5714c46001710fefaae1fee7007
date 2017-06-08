@@ -1,1 +1,0 @@
-<div id="grid1" ui-grid="{ data: js3 }" class="grid"></div>
