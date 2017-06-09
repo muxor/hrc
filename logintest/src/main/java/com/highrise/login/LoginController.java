@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -111,26 +112,29 @@ public class LoginController {
 			dateCompl = "06/2"+j+"/2017";
 			      
 			
-			boolean fnCheck = UserSearchParams.firstName != null && !UserSearchParams.firstName.isEmpty() && fname.toLowerCase().contains(UserSearchParams.firstName.toLowerCase()) ? true : false;
-			boolean lnCheck = UserSearchParams.lastName != null && !UserSearchParams.lastName.isEmpty() && lname.toLowerCase().contains(UserSearchParams.lastName.toLowerCase()) ? true : false;
-			boolean emailCheck = UserSearchParams.email != null && !UserSearchParams.email.isEmpty() && email.toLowerCase().contains(UserSearchParams.email.toLowerCase()) ? true : false;
-			boolean puCheck = UserSearchParams.pmsUid != null && !UserSearchParams.pmsUid.isEmpty() && puid.toLowerCase().contains(UserSearchParams.pmsUid.toLowerCase()) ? true : false;
-			boolean ruCheck = UserSearchParams.requestedId != null && !UserSearchParams.requestedId.isEmpty() && ruid.toLowerCase().contains(UserSearchParams.requestedId.toLowerCase()) ? true : false;
-			boolean statusCheck = UserSearchParams.status != null && !UserSearchParams.status.isEmpty() && status.toLowerCase().contains(UserSearchParams.status.toLowerCase()) ? true : false;
-			boolean drCheck = UserSearchParams.dateRequestedFrom != null && !UserSearchParams.dateRequestedFrom.isEmpty() && dateReq.toLowerCase().contains(UserSearchParams.dateRequestedFrom.toLowerCase()) ? true : false;
-			boolean dcCheck = UserSearchParams.dateCompletedFrom != null && !UserSearchParams.dateCompletedFrom.isEmpty() && dateCompl.toLowerCase().contains(UserSearchParams.dateCompletedFrom.toLowerCase()) ? true : false;
+			boolean fnCheck = params.firstName != null && !params.firstName.isEmpty() && fname.toLowerCase().contains(params.firstName.toLowerCase()) ? true : false;
+			boolean lnCheck = params.lastName != null && !params.lastName.isEmpty() && lname.toLowerCase().contains(params.lastName.toLowerCase()) ? true : false;
+			boolean emailCheck = params.email != null && !params.email.isEmpty() && email.toLowerCase().contains(params.email.toLowerCase()) ? true : false;
+			boolean puCheck = params.pmsUid != null && !params.pmsUid.isEmpty() && puid.toLowerCase().contains(params.pmsUid.toLowerCase()) ? true : false;
+			boolean ruCheck = params.requestedId != null && !params.requestedId.isEmpty() && ruid.toLowerCase().contains(params.requestedId.toLowerCase()) ? true : false;
+			boolean statusCheck = params.status != null && !params.status.isEmpty() && status.toLowerCase().contains(params.status.toLowerCase()) ? true : false;
+			boolean drCheck = params.dateRequestedFrom != null && !params.dateRequestedFrom.isEmpty() && dateReq.toLowerCase().contains(params.dateRequestedFrom.toLowerCase()) ? true : false;
+			boolean dcCheck = params.dateCompletedFrom != null && !params.dateCompletedFrom.isEmpty() && dateCompl.toLowerCase().contains(params.dateCompletedFrom.toLowerCase()) ? true : false;
 			
 			
 			
-//			
-			if (fnCheck || lnCheck || emailCheck || puCheck || ruCheck || statusCheck || drCheck || dcCheck){
+			if (fnCheck || lnCheck || emailCheck){
+			/*if (fnCheck || lnCheck || emailCheck || puCheck || ruCheck || statusCheck || drCheck || dcCheck){*/
 			//action: take the one object matching a mock name value and exit the for loop
 //				
+//				UserSearchParams u1 = new UserSearchParams(fname,lname,email);
 				UserSearchParams u1 = new UserSearchParams();
-				u1.firstName = fname;
-				u1.lastName = lname;
-				u1.email = email;
+				u1.setParams(fname,lname,email);
+//				u1.firstName = fname;
+//				u1.lastName = lname;
+//				u1.email = email;
 				theList.add(u1);
+//				System.out.println(" got intot the usp loop <br />"+j);
 
 				
 			}else{
@@ -288,24 +292,30 @@ return theList;
 	}
 	
 	public static class UserSearchParams {
-		private static String firstName;
-		private static String lastName;
-		private static String email;
-		private static String pmsUid;
-		private static String requestedId;
-		private static String status;
-		private static String dateRequestedFrom;
-		private static String dateRequestedTo;
-		private static String dateCompletedFrom;
-		private static String dateCompletedTo;
+		private String firstName;
+		private String lastName;
+		private String email;
+		private String pmsUid;
+		private String requestedId;
+		private String status;
+		private String dateRequestedFrom;
+		private String dateRequestedTo;
+		private String dateCompletedFrom;
+		private String dateCompletedTo;
 		
 		
-/*		public UserSearchParams(String firstName,String lastName, String email){
+		
+		
+		public void setParams(String firstName,String lastName, String email){
 			
 			setFirstName(firstName);
 			setLastName(lastName);
 			setEmail(email);
-		}*/
+		}
+		
+		
+
+		
 		
 		public String getDateRequestedFrom() {
 			return dateRequestedFrom;

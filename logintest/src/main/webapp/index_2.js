@@ -2,6 +2,8 @@ var app = angular.module('myApp', [ 'ngRoute', 'ui.grid', 'ui.date',
 		'ui.bootstrap' ]);
 //
 // ,'ui.bootstrap.demo'
+//, 'myService'
+
 
 app
 		.controller(
@@ -11,71 +13,6 @@ app
 					$scope.lastName = "Row";
 
 					// alert('the controller works ');
-
-					$scope.user = "";
-					$scope.pwd = "";
-
-					$scope.runAuthentication1 = function runAuthentication1() {
-
-						// alert('got into Authentication 1');
-
-						$('#loadingMsg').show();
-
-						var request = $http.post(
-								'http://localhost:8081/logintest/app/login/authenticate1/'
-										+ $scope.user + '/' + $scope.pwd + '',
-								{});
-
-						request
-								.success(function(data) {
-
-									$('#loadingMsg').hide();
-									// alert('Authentication 1 just ran and is
-									// successful! and returned '+data);
-
-									// $('#myModal').modal('show');
-
-									if (data == true) {
-
-										// $("#modalAlert").toggleClass('alert-info
-										// alert-success');//
-										// $('#modalTitle1').html("<span
-										// class='glyphicon glyphicon
-										// glyphicon-ok'
-										// aria-hidden='true'><b>Success</b>");
-										// $('#modalText1').text("Authentication
-										// 1 just ran and is successful! and
-										// returned..."+data);
-										// $('#myModal').modal('hide');
-										$location.url("/test");
-
-									} else {
-										// action: for failure
-
-										$("#modalAlert").toggleClass(
-												'alert-info alert-danger');//
-										$('#modalTitle1')
-												.html(
-														"<span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span> <b>Failure</b>");
-										$('#modalText1').text(
-												"Authentication 1 just ran and FAILED! Because data returned "
-														+ data + "");
-
-									}
-
-								});
-
-						request.error(function(data) {
-
-							$('#loadingMsg').hide();
-							alert('error');
-
-						});
-
-						// window.location.href =
-						// "http://localhost:8081/logintest/";
-
-					}
 
 					// $scope.runAuthentication1();
 
@@ -99,39 +36,17 @@ app
 								// $http.get('http://localhost:8081/logintest/app/login/authenticate2/?usr='+$scope.user+'&pw='+$scope.pwd+'')
 								.success(
 										function(data) {
-											// alert('Authentication 2 just ran
-											// and is successful !');
-											// alert('entered the inner function
-											// 5:34');
 
-											// if (data == true) {
-											//												
-											// alert('Authentication 2 just ran
-											// and is successful !');
-											//												
-											// } else {
-											//												
-											// alert('Authentication 2 FAILED');
-											//												
-											// }
+
 
 											if (data == true) {
 
-												// $("#modalAlert").toggleClass('alert-info
-												// alert-success');//
-												// $('#modalTitle1').html("<span
-												// class='glyphicon glyphicon
-												// glyphicon-ok'
-												// aria-hidden='true'><b>Success</b>");
-												// $('#modalText1').text("Authentication
-												// 1 just ran and is successful!
-												// and returned..."+data);
-												// $('#myModal').modal('hide');
+
+
 												$('#myModal').modal('show');
 												var count = 0;
-												// $('#myModal').on('shown.bs.modal',
-												// function (e) {
-												// do something...
+
+
 												$interval(
 														function() {
 															// action: wait 5
@@ -152,7 +67,7 @@ app
 																// function (e)
 																// {
 																$location
-																		.url("/jgrid4");
+																		.url("/jgrid");
 																// });
 
 															}
@@ -195,7 +110,12 @@ app
 		.controller('DatepickerDemoCtrl',
 				function($rootScope, $scope) {
 
-					$scope.setStatus = function() {
+
+			
+			
+			//action: $broadcast for connecting controllers
+			
+			$scope.setStatus = function() {
 
 						$rootScope.$broadcast('setStatus', {
 							info : $scope.status
@@ -205,7 +125,7 @@ app
 					};
 
 					$scope.setDateReqF = function() {
-//						alert('setDateReqF was activated');
+
 						$rootScope.$broadcast('setDRF1', {
 							info : $scope.dateReqFrom
 						});
@@ -214,7 +134,7 @@ app
 
 					};
 					$scope.setDateReqT = function() {
-//						alert('setDateReqT was activated');
+
 						$rootScope.$broadcast('setDRT1', {
 							info : $scope.dateReqTo
 						});
@@ -222,22 +142,21 @@ app
 						// $scope.$emit('getDRF1', $scope.dateReqFrom);
 
 					};
-					
+
 					$scope.setDateCompF = function() {
-//						alert('setDateCompF was activated');
+
 						$rootScope.$broadcast('setDCF1', {
 							info : $scope.dateCompFrom
 						});
 
 					};
 					$scope.setDateCompT = function() {
-//						alert('setDateCompT was activated');
+
 						$rootScope.$broadcast('setDCT1', {
 							info : $scope.dateCompTo
 						});
 
 					};
-					
 
 					$scope.today = function() {
 						$scope.dt = new Date("MM/DD/YYYY");
@@ -280,71 +199,47 @@ app
 					$scope.format = 'MM/dd/yyyy';
 				});
 
+
+app.service('getDataService', function($http,$interval) {
+
+	this.getUsers = function(fName,lName,email,puid,dateReqFrom,status,dateReqFrom,dateReqTo,dateCompFrom,dateCompTo, successCallback) {
+
+		$('#mySearchModal').modal('show');
+		
+
+		$http.get('/logintest/app/login/getUsers4/', {
+			params : {
+				'firstName' : fName,
+				'lastName' : lName,
+				'email' : email,
+				'pmsUid' : puid,
+				'requestedId' : dateReqFrom,
+				'status' : status,
+				'dateRequestedFrom' : dateReqFrom,
+				'dateRequestedTo' : dateReqTo,
+				'dateCompletedFrom' : dateCompFrom,
+				'dateCompletedTo' : dateCompTo
+			}
+		}).success(function(data) {
+
+			successCallback(data);
+			
+			$('#mySearchModal').modal('hide');
+			
+		}).error(function() {
+			$('#mySearchModal').modal('hide');
+		});
+
+	}
+
+});
+
+
+
 app.controller('jsonDataTest', function($scope, $rootScope, $http,
-		uiGridConstants, $interval) {
+		uiGridConstants, $interval, getDataService) {
 
-	// begin: ui-grid info [practice]
-	$scope.myData = [ {
-		"firstName" : "Cox",
-		"lastName" : "Carney",
-		"company" : "Enormo",
-		"employed" : true
-	}, {
-		"firstName" : "Lorraine",
-		"lastName" : "Wise",
-		"company" : "Comveyer",
-		"employed" : false
-	}, {
-		"firstName" : "Nancy",
-		"lastName" : "Waters",
-		"company" : "Fuelton",
-		"employed" : false
-	} ];
-
-	// example.js javascript code [for datepicker items] ------>
-
-	// $scope.today = function() {
-	// $scope.dt = new Date("MM/DD/YYYY");
-	// };
-	// $scope.today();
-	//
-	//		  
-	// $scope.status = "";
-	// $scope.blank1 = "";
-	// $scope.blank2 = "";
-	//		  
-	// $scope.clear = function () {
-	// $scope.dt = null;
-	// };
-	//
-	// // Disable weekend selection
-	// $scope.disabled = function(date, mode) {
-	// return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 )
-	// );
-	// };
-	//
-	// $scope.toggleMin = function() {
-	// $scope.minDate = $scope.minDate ? null : new Date();
-	// };
-	// $scope.toggleMin();
-	//
-	// $scope.open = function($event) {
-	// $event.preventDefault();
-	// $event.stopPropagation();
-	//
-	// $scope.opened = true;
-	// };
-	//
-	// $scope.dateOptions = {
-	// formatYear: 'yy',
-	// startingDay: 1
-	// };
-	//
-	// $scope.formats = ['Initiated', 'Submitted', 'Approved', 'Rejected',
-	// 'Completed'];
-	// $scope.format = 'MM/dd/yyyy';
-
-	// example.js javascript code ------>
+	// begin: ui-grid info
 
 	$scope.highlightFilteredHeader = function(row, rowRenderIndex, col,
 			colRenderIndex) {
@@ -354,35 +249,6 @@ app.controller('jsonDataTest', function($scope, $rootScope, $http,
 			return '';
 		}
 	};
-
-	$scope.gridOptions = {
-
-		enableFiltering : true,
-		onRegisterApi : function(gridApi) {
-			$scope.gridApi = gridApi;
-		},
-		columnDefs : [
-		// default
-		{
-			field : 'firstName',
-			headerCellClass : $scope.highlightFilteredHeader
-		}, {
-			field : 'lastName',
-			headerCellClass : $scope.highlightFilteredHeader
-		}, {
-			field : 'company',
-			headerCellClass : $scope.highlightFilteredHeader
-		}, {
-			field : 'employed',
-			headerCellClass : $scope.highlightFilteredHeader
-		}
-
-		]
-
-	};
-
-	$scope.gridOptions.data = $scope.myData;
-	// end: ui-grid info [practice]
 
 	// Begin: ui-grid info
 
@@ -449,10 +315,10 @@ app.controller('jsonDataTest', function($scope, $rootScope, $http,
 		}, {
 			field : 'dateRequestedFrom',
 			headerCellClass : $scope.highlightFilteredHeader
-		},  {
+		}, {
 			field : 'dateRequestedTo',
 			headerCellClass : $scope.highlightFilteredHeader
-		},{
+		}, {
 			field : 'dateCompletedFrom',
 			headerCellClass : $scope.highlightFilteredHeader
 		}, {
@@ -466,137 +332,51 @@ app.controller('jsonDataTest', function($scope, $rootScope, $http,
 
 	$scope.$on('setStatus', function(event, arg) {
 		$scope.status = arg.info;
-		alert('got into getStatus and status =' + $scope.status);
+
 	});
 
 	$scope.$on('setDRF1', function(event, arg) {
 		$scope.dateReqFrom = arg.info;
-//		alert('got into getDRF1 and dateReqFrom' + $scope.dateReqFrom);
+
 	});
 	$scope.$on('setDRT1', function(event, arg) {
 		$scope.dateReqTo = arg.info;
-//		alert('got into getDRF1 and dateReqFrom' + $scope.dateReqFrom);
+
 	});
 
 	$scope.$on('setDCF1', function(event, arg) {
 		$scope.dateCompFrom = arg.info;
-//		alert('got into getDCF1 and dateCompFrom is' + $scope.dateCompFrom);
+
 	});
 	$scope.$on('setDCT1', function(event, arg) {
 		$scope.dateCompTo = arg.info;
-//		alert('got into getDCF1 and dateCompFrom is' + $scope.dateCompFrom);
+
 	});
-
-	
-	
-	
-	
-	$scope.getUsers2 = function() {
-
-		// , ,
-
-		// alert('getusers 2 has been run !');
-
-		// $http.get('http://localhost:8081/logintest/app/login/getUsers/')
-		// $http.get('/logintest/app/login/getUsersGet',
-		// {
-		// params: {
-		// 'firstName': $scope.fName,
-		// 'lastName': $scope.lName,
-		// 'email': $scope.email,
-		// 'dateRequestedFrom': $rootScope.blank1
-		// }
-		// })
-		$http.get(
-				'http://localhost:8081/logintest/app/login/getUsers?fn='
-						+ $scope.fName + '&ln=' + $scope.lName + '&em='
-						+ $scope.email + '&puid=' + $scope.puid + '&reqType='
-						+ $scope.rid + '&status=' + $scope.status
-						+ '&dateReqF=' + $scope.dateReqFrom + '&dateCompF='
-						+ $scope.dateCompFrom + '').success(function(data) {
-
-			$('#mySearchModal').modal('show');
-			var count = 0;
-			$('#mySearchModal').on('shown.bs.modal', function(e) {
-				// do something...
-				$interval(function() {
-					// action: wait 5 seconds
-					count++;
-
-					if (count > 2) {
-						alert('the count is' + count);
-						$('#mySearchModal').modal('hide');
-						// $location.url("/jgrid4");
-						$scope.gridOptions2.data = data;
-					}
-				}, 1000, 3);
-
-			});
-
-			// $scope.gridOptions2.data = data;
-
-		});
-
-	}
 
 	// End: ui-grid info
 
 	$scope.status = "";
 
-	$scope.getUsers3 = function() {
-
-		$http.post('http://localhost:8081/logintest/app/login/getUsersPost/', {
-
-			"firstName" : $scope.fName,
-			"lastName" : $scope.lName,
-			"email" : $scope.email,
-			"pmsUid" : $scope.puid,
-			"redID" : $scope.rid,
-			"status" : $scope.status,
-			"dateReqFrom" : "",
-			"dateCompFrom" : ""
-
-		}).success(function(data) {
-
-			// alert("getUser3 brought data back !");
-
-			$('#mySearchModal').modal('show');
-			var count = 0;
-			// $('#mySearchModal').on('shown.bs.modal', function (e) {
-			// do something...
-			$interval(function() {
-				// action: wait 5 seconds
-				count++;
-
-				if (count >= 3) {
-					alert('the count is' + count);
-					$('#mySearchModal').modal('hide');
-					// $location.url("/jgrid4");
-					count = 0;
+	
+	
+	$scope.getUsers4 = function(){
+		
+				
+		getDataService.getUsers($scope.fName,$scope.lName,$scope.email,$scope.puid,$scope.dateReqFrom,$scope.status,
+				$scope.dateReqFrom,$scope.dateReqTo,$scope.dateCompFrom,$scope.dateCompTo, 
+				function(data) {
 					$scope.gridOptions3.data = data;
 				}
-			}, 1000, 3);
+		);
+		
+		
+//$log.debug('the value of things is: '+$scope.things.it);
+//		$scope.gridOptions3.data = getDataService.getUsers($scope.fName,$scope.lName,$scope.email,$scope.puid,$scope.dateReqFrom,$scope.status,$scope.dateReqFrom,$scope.dateReqTo,$scope.dateCompFrom,$scope.dateCompTo);
+		
+	};
+	
+	$scope.getUsers4_old = function() {
 
-			// });
-
-		});
-
-	}
-
-	$scope.getUsers4 = function() {
-
-		// , ,
-
-		// alert('getusers 2 has been run !');
-
-		// $http.get(
-		// 'http://localhost:8081/logintest/app/login/getUsers4?fn='
-		// + $scope.fName + '&ln=' + $scope.lName + '&em='
-		// + $scope.email + '&puid=' + $scope.puid + '&reqType='
-		// + $scope.rid + '&status=' + $scope.status
-		// + '&dateReqF=' + $scope.dateReqFrom + '&dateCompF='
-		// + $scope.dateCompFrom + '')
-//		$http.get('http://localhost:8081/logintest/app/login/getUsers4/')
 		$http.get('/logintest/app/login/getUsers4/', {
 			params : {
 				'firstName' : $scope.fName,
@@ -613,15 +393,17 @@ app.controller('jsonDataTest', function($scope, $rootScope, $http,
 		}).success(function(data) {
 
 			$('#mySearchModal').modal('show');
-			var count = 0;
+
 			$('#mySearchModal').on('shown.bs.modal', function(e) {
+
+				var count = 0;
 				// do something...
 				$interval(function() {
 					// action: wait 5 seconds
 					count++;
 
-					if (count > 2) {
-						alert('the count is' + count);
+					if (count >= 3) {
+						// alert('the count is: ' + count);
 						$('#mySearchModal').modal('hide');
 						// $location.url("/jgrid4");
 						$scope.gridOptions3.data = data;
@@ -629,8 +411,6 @@ app.controller('jsonDataTest', function($scope, $rootScope, $http,
 				}, 1000, 3);
 
 			});
-
-			// $scope.gridOptions2.data = data;
 
 		});
 
@@ -666,12 +446,8 @@ app.controller('jsonDataTest', function($scope, $rootScope, $http,
 						}
 					}
 
-					// for(i=0;i<7;i++){
-					//			
-					//
-					// alert('runJs1 returned some data !');
-					//			
-					// }
+
+
 				});
 
 	}
@@ -711,26 +487,6 @@ app.controller('jsonDataTest', function($scope, $rootScope, $http,
 		return regex.test(x.first_name);
 	};
 
-	$scope.getUsers = function() {
-
-		alert('getusers has been run !');
-
-		// $http.get('http://localhost:8081/logintest/app/login/getUsers/')
-		$http.get(
-				'http://localhost:8081/logintest/app/login/getUsers/?fn='
-						+ $scope.fName + '&ln=' + $scope.lName + '&em='
-						+ $scope.email + '&puid=' + $scope.puid + '&reqType='
-						+ $scope.rid + '&status=' + $scope.status
-						+ '&dateReqF=' + $scope.dateReqFrom + '&dateCompF='
-						+ $scope.dateCompFrom + '').success(function(data) {
-
-			$scope.js3 = data;
-			$scope.js2 = $scope.js3;
-
-		});
-
-	}
-
 });
 
 app.controller('search3Controller', function($scope) {
@@ -739,7 +495,6 @@ app.controller('search3Controller', function($scope) {
 
 /*
  * app.service('search3Service',function($http){
- * 
  * 
  * 
  *  })
@@ -753,67 +508,21 @@ app
 				"$routeProvider",
 				function($routeProvider) {
 					return $routeProvider
-							.when(
-									"/test",
-									{
-										template : "<h1>Main</h1><p>Click on the links to change this content</p>"
-												+ "<p><button type='submit' class='btn btn-default' data-ng-click='runJs2()'>Submit</button></p>"
-												+ "<p x in records ng-repeat='x in js2'>{{x}}</p>",
-										controller : "jsonDataTest"
-
-									}).when("/united", {
-								templateUrl : "united_theme_2.html",
-								controller : "unitedCtrl"
-							}).when("/", {
-								redirectTo : "/login2"
+							.when("/", {
+								redirectTo : "/login"
 							}).when("/home", {
 								templateUrl : "home.html",
 								controller : "controllerName"
 							}).when("/login", {
 								templateUrl : "login.html",
 								controller : "myCtrl"
-							}).when("/login2", {
-								templateUrl : "login_2.html",
-								controller : "myCtrl"
-							}).when("/page1", {
-								templateUrl : "pageExampe1_2.html",
-								controller : "myCtrl"
-							}).when("/jsonMd1", {
-								templateUrl : "jsonMockData.html"
-							}).when("/rs1", {
-								templateUrl : "requestSearch.html"
-							}).when("/jgrid1", {
-								templateUrl : "jGrid1.html",
-								controller : "jsonDataTest"
-							}).when("/jgrid2", {
-								templateUrl : "jGrid2.html",
-								controller : "jsonDataTest"
-
-							}).when("/jgrid3", {
-								templateUrl : "jGrid3.html",
-								controller : "jsonDataTest"
-
-							}).when("/jgrid3B", {
-								templateUrl : "ugrid_test.html",
-								controller : "jsonDataTest"
-
-							}).when("/jgrid4", {
-								templateUrl : "jGrid4_2.html",
+							}).when("/jgrid", {
+								templateUrl : "jGrid.html",
 								controller : "jsonDataTest"
 
 							})
 
 				} ]);
 
-angular.module('myService', []).service('$http', function($http) {
-	return {
+//angular.module('myService', [])
 
-		getStuff : function(payLoad) {
-
-			$http.get();
-
-		}
-
-	}
-
-})
