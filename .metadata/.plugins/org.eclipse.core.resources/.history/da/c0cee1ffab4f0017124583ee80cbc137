@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<!-- <script src="./resources/jquery.min.js"></script> -->
+<script type="text/javascript" src="./js/jquery/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="./js/jquery/jquery-ui.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="./css/bootstrap.min_3.3.7.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+	
+	<style type="text/css" src="./css/bootstrap-theme.min.css"></style>
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="./js/datepicker/bootstrap.min_3.3.7.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+	
+
+<!-- <link type="text/css" rel="stylesheet" href="./css/pms.css" /> -->
+
+<script
+	src="./js/angular_1-4-8.js"></script>
+</head>
+
+<!-- imports the ngRoute -->
+
+<script data-require="angular-route.js@*" data-semver="1.2.13"
+	src="./js/angular-route_1.2.13.js"></script>
+
+<script type="text/javascript">
+	//action: adds latest copy of template1.js to this file. Problem was that index.js getting accidentally
+	// stored in browser memory
+
+	var my_dynamic_script = document.createElement('script');
+
+	my_dynamic_script.setAttribute('type', 'text/javascript');
+
+	my_dynamic_script.setAttribute('src', 'template1.js?' + (new Date).getTime());
+
+	document.head.appendChild(my_dynamic_script);
+</script>
+
+<body ng-app="atemp">
+<span class="label label-primary" style="position:absolute; top:0px; width:100%;">header</span>
+<ng-view>this is the template1 page</ng-view>
+<span class="label label-primary" style="position:absolute; bottom:0px; width:100%;">footer</span>
+
+
+</body>
+</html>

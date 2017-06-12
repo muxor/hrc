@@ -1,0 +1,30 @@
+
+
+var app = angular.module('atemp',['ngRoute']);
+
+app.controller('',function($scope){
+	
+	
+	
+	
+	
+	
+});
+
+app
+.config([
+		"$routeProvider",
+		function($routeProvider) {
+			return $routeProvider
+					.when("/", {
+						template : "home.html",
+						controller : "controllerName"
+					}).when("/page2", {
+						template : "home.html",
+						controller : "controllerName"
+					}).when("/page3", {
+						templateUrl : "login.html",
+						controller : "myCtrl"
+					})
+
+		} ]);

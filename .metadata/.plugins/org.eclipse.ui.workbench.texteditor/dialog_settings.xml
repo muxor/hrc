@@ -2,30 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="getUsers4" key="selection"/>
+		<item value="red" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="getusers4"/>
-			<item value="gridop"/>
-			<item value="gridoption"/>
-			<item value="gridoptions"/>
-			<item value="gridopti"/>
-			<item value="puid"/>
-			<item value="userResult"/>
-			<item value="/getusers4"/>
+			<item value="red"/>
+			<item value=".css"/>
+			<item value="_2"/>
+			<item value="jgrid4"/>
+			<item value="getusers"/>
+			<item value="successCallback"/>
+			<item value=".getusers"/>
+			<item value="getDataService.getUsers"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value="params"/>
 			<item value="pmsUid"/>
 			<item value="UserSearchParams"/>
-			<item value=""/>
 			<item value="||"/>
 			<item value="dateCompl"/>
 			<item value="dateReq"/>
 			<item value="status"/>
-			<item value="ruid"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -1,0 +1,6 @@
+/*		public UserSearchParams(String firstName,String lastName, String email){
+			
+			setFirstName(firstName);
+			setLastName(lastName);
+			setEmail(email);
+		}*/
