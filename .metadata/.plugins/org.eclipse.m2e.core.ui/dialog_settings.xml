@@ -14,6 +14,15 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\ugoa\workspace\cas-sample-java-webapp"/>
+			<item value="C:\Users\ugoa\workspace\cas-services-management-overlay.git"/>
+			<item value="C:\Users\ugoa\workspace\cas-services-management-overlay-5-1.git"/>
+			<item value="C:\Users\ugoa\workspace\logintestC"/>
+			<item value="C:\Users\ugoa\workspace\logintestB"/>
+			<item value="C:\Users\ugoa\workspace\cas-configserver-overlay-5-1"/>
+			<item value="C:\Users\ugoa\workspace\cas-overlay-template-5-1"/>
+			<item value="C:\Users\ugoa\workspace\simple-cas4-overlay-templat"/>
+			<item value="C:\Users\ugoa\workspace\java-cas-client"/>
 			<item value="C:\Users\ugoa\Documents\GCIT\Sprints\Sprint_10_31_16\SpringAngular"/>
 			<item value="C:\Users\ugoa\workspace\logintest"/>
 		</list>

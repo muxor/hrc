@@ -83,7 +83,6 @@ public class LoginController {
 	public List<UserSearchParams> performSearch(UserSearchParams params){
 
 		
-		
 		List<UserSearchParams> theList = new ArrayList<UserSearchParams>();
 		
 //		stopped here: creating an updated getUsers method to accept more parameters without clogging the method parameters field		
@@ -98,6 +97,9 @@ public class LoginController {
 		String dateCompl;
 		
 		
+		int getAll = 0;
+		
+		for (int g=0;g<2;g++){
 		
 		for (int j=0;j<5;j++){
 			
@@ -123,7 +125,7 @@ public class LoginController {
 			
 			
 			
-			if (fnCheck || lnCheck || emailCheck){
+			if ((fnCheck || lnCheck || emailCheck) || getAll == 1){
 			/*if (fnCheck || lnCheck || emailCheck || puCheck || ruCheck || statusCheck || drCheck || dcCheck){*/
 			//action: take the one object matching a mock name value and exit the for loop
 //				
@@ -143,9 +145,15 @@ public class LoginController {
 			
 			
 			
+		}//end of 'i' for loop
+		
+		if (theList.size() == 0){
+			//action: returns every dummy object
+			getAll = 1;
 		}
 
-
+		}
+		
 
 return theList;
 		

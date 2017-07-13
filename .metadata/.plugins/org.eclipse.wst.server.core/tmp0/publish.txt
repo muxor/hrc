@@ -1,3 +1,6 @@
 #Tomcat publish data
-#Mon Jun 12 16:17:15 EDT 2017
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ugoa\\.m2\\repository\\org\\springframework\\spring-web\\4.3.3.RELEASE\\spring-web-4.3.3.RELEASE.jar=WEB-INF/lib/spring-web-4.3.3.RELEASE.jar
+#Thu Jul 06 15:10:12 EDT 2017
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ugoa\\workspace\\cas-overlay-template-5-1\\target\\m2e-wtp\\overlays\\cas-server-webapp-tomcat-5.1.0.war\\WEB-INF\\lib\\log4j-web-2.8.2.jar=WEB-INF/lib/log4j-web-2.8.2.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ugoa\\workspace\\cas-overlay-template-5-1\\target\\m2e-wtp\\overlays\\cas-server-webapp-tomcat-5.1.0.war\\WEB-INF\\lib\\tomcat-embed-websocket-8.5.14.jar=WEB-INF/lib/tomcat-embed-websocket-8.5.14.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ugoa\\workspace\\cas-overlay-template-5-1\\target\\m2e-wtp\\overlays\\cas-server-webapp-tomcat-5.1.0.war\\WEB-INF\\lib\\spring-web-4.3.8.RELEASE.jar=WEB-INF/lib/spring-web-4.3.8.RELEASE.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ugoa\\workspace\\cas-overlay-template-5-1\\target\\m2e-wtp\\overlays\\cas-server-webapp-tomcat-5.1.0.war\\WEB-INF\\lib\\tomcat-embed-jasper-8.5.14.jar=WEB-INF/lib/tomcat-embed-jasper-8.5.14.jar

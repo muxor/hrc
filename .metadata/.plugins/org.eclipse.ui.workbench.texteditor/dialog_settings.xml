@@ -2,37 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="red" key="selection"/>
+		<item value="userName" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="red"/>
-			<item value=".css"/>
-			<item value="_2"/>
-			<item value="jgrid4"/>
-			<item value="getusers"/>
-			<item value="successCallback"/>
-			<item value=".getusers"/>
-			<item value="getDataService.getUsers"/>
+			<item value="userName"/>
+			<item value="runAuthentication2()"/>
+			<item value="index."/>
+			<item value="index"/>
+			<item value="index.js"/>
+			<item value="submit"/>
+			<item value="user"/>
+			<item value="username"/>
 		</list>
 		<list key="replacehistory">
+			<item value="localhost:8443"/>
 			<item value=""/>
+			<item value="../"/>
 			<item value="params"/>
 			<item value="pmsUid"/>
 			<item value="UserSearchParams"/>
 			<item value="||"/>
 			<item value="dateCompl"/>
-			<item value="dateReq"/>
-			<item value="status"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="263" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="289" key="DIALOG_HEIGHT"/>
-		<item value="755" key="DIALOG_X_ORIGIN"/>
-		<item value="433" key="DIALOG_Y_ORIGIN"/>
+		<item value="1028" key="DIALOG_X_ORIGIN"/>
+		<item value="261" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

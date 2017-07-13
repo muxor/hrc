@@ -239,6 +239,29 @@ app.service('getDataService', function($http,$interval) {
 app.controller('jsonDataTest', function($scope, $rootScope, $http,
 		uiGridConstants, $interval, getDataService) {
 
+	
+
+//	$scope.fdafa = null;
+//	$scope.fdafa = null;
+	
+	$scope.form2Reset = function(){
+		
+		
+		$scope.fName = null;
+		$scope.lName = null;
+		$scope.email = null;
+		$scope.puid = null;
+		$scope.rid = null;
+		$scope.dateReqFrom = null;
+		$scope.dateReqTo = null;
+		$scope.dateCompFrom = null;
+		$scope.dateCompTo = null;
+		$scope.status = null;
+		
+		
+	}
+	
+	
 	// begin: ui-grid info
 
 	$scope.highlightFilteredHeader = function(row, rowRenderIndex, col,

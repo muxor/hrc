@@ -1,0 +1,14 @@
+127.0.0.1 - - [22/Jun/2017:13:08:06 -0400] "GET / HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:05 -0400] "GET /logintest/]/ HTTP/1.1" 404 1093
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:05 -0400] "GET /favicon.ico HTTP/1.1" 404 1092
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:11 -0400] "GET /logintest/ HTTP/1.1" 200 2010
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:11 -0400] "GET /logintest/js/jquery/jquery-ui.js HTTP/1.1" 200 520714
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:11 -0400] "GET /logintest/js/jquery/jquery-3.1.1.js HTTP/1.1" 200 267194
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:11 -0400] "GET /logintest/js/angular_1-4-8.js HTTP/1.1" 200 1070726
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:11 -0400] "GET /logintest/css/bootstrap.min_3.3.7.css HTTP/1.1" 200 121200
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:11 -0400] "GET /logintest/js/angular-route_1.2.13.js HTTP/1.1" 200 32505
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:11 -0400] "GET /logintest/js/datepicker/bootstrap.min_3.3.7.js HTTP/1.1" 200 37045
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:13 -0400] "GET /logintest/template1/template1.js?1498151353173 HTTP/1.1" 200 555
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:09:13 -0400] "GET /logintest/template1/temp_a.html HTTP/1.1" 200 531
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:10:37 -0400] "GET /logintest/template1/temp_b.html HTTP/1.1" 200 263
+0:0:0:0:0:0:0:1 - - [22/Jun/2017:13:10:38 -0400] "GET /logintest/template1/temp_c.html HTTP/1.1" 200 650

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1497386799957_1" label="cas-client" name="cas-client">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/java-cas-client" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1495480825288_0" label="Window Working Set" name="Aggregate for window 1495480825287"/>
 </workingSetManager>
